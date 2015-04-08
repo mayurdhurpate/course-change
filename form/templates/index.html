@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Course Change Portal ( Banaras Hindu University ), Varanasi -India">
+    <meta name="keywords" content="course change portal,portal,iit bhu, itbhu,bhu, indian institute of technology bhu, iit varanasi,banaras hindu university" />
+
+    <meta name="author" content="">
+    <!--favicon-->
+    <link rel="icon" href="/static/images/iitbhu.ico">
+
+    <title>Course Change Portal | IIT (BHU), Varanasi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- <link href="/static/css/custom.css" rel="stylesheet"> -->
+   
+  </head>
+
+  <body>
+
+    <form action="/submit/" align="center" id="myForm"   method="post">{% csrf_token %}
+      <label  for="name">NAME: </label>
+      <input name="name" type="text" id="name" style="text-transform:uppercase;" />
+      <label  for="air">ALL INDIA RANK (JEE): </label>
+      <input name="air" type="text"/>
+      <label  for="roll">ROLL NUMBER: </label>
+      <input name="roll" type="text"/><br><br>
+
+      <label  for="cpi1">CPI I Semester: </label>
+      <input name="cpi1" type="text"/>
+      <label  for="ptype">PROGRAMME TYPE: </label>
+      <select name="ptype" id="ptype">
+        <option value="year4">4­ Year Programme</option>
+        <option value="year5">5 Year Programme</option>
+      </select>
+      <label  for="branch" >BRANCH: </label>
+      <select name="branch" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+
+      <label  for="choice1" >Choice 1: </label>
+      <select name="choice1" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+      <label  for="choice2" >Choice 2: </label>
+      <select name="choice2" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+      <label  for="choice3" >Choice 3: </label>
+      <select name="choice3" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+      <label  for="choice4" >Choice 4: </label>
+      <select name="choice4" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+      <label  for="choice5" >Choice 5: </label>
+      <select name="choice5" id="branch">
+        <option value="dummy" class="dummy" >Select a Branch</option>
+        <option value="-ugd" class="ugd">UGC in Ceramic Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Chemical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Civil Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Computer Science and Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electrical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Electronics Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Mechanical Engineering</option>
+        <option value="-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
+        <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
+
+        <option value="-imd" class="idd" >IMD in Industrial Chemistry</option>
+        <option value="-imd" class="idd" >IMD in Mathematics and Computing</option>
+        <option value="-imd" class="idd" >IMD in Engineering Physics</option>
+        <option value="-idd" class="idd" >IDD in Ceramic Engineering</option>
+        <option value="-idd" class="idd" >IDD in Civil Engineering</option>
+        <option value="-idd" class="idd" >IDD in Computer Science and Engineering</option>
+        <option value="-idd" class="idd" >IDD in Electrical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mechanical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Metallurgical Engineering</option>
+        <option value="-idd" class="idd" >IDD in Mining Engineering</option>
+        <option value="-idd" class="idd" >IDD in Pharmacy</option>
+        <option value="-idd" class="idd" >IDD in Biochemical Engineering</option>
+        <option value="-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
+        <option value="-idd" class="idd" >IDD in Materials Science and Technology</option>
+
+      </select><br><br>
+
+      <button type="button" id="submit_button" onclick="fsubmit()" >Submit</button>
+
+    </form>
+    
+
+
+
+
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript">
+    $(".idd").hide();
+    $("#ptype").change(function () {
+      $('.dummy').prop('selected', true);
+      if($("#ptype").val()=="year4"){
+      $(".ugd").show();
+      $(".idd").hide();
+    }
+    else{
+      $(".ugd").hide();
+      $(".idd").show();
+    }
+    });
+
+    function fsubmit() {
+    if($("#branch").val()!="dummy"){
+    document.getElementById("name").value = $("#name").val().toUpperCase();
+    document.getElementById("myForm").submit();
+
+  }
+}
+
+    </script>
+
+  </body>
+</html>
