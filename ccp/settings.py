@@ -88,3 +88,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'static'),
 )
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'no-reply@technex.in'
+EMAIL_HOST_PASSWORD = 'ramleela2014'
+DEFAULT_FROM_EMAIL = 'no-reply@technex.in'
+DEFAULT_TO_EMAIL = 'to email'
