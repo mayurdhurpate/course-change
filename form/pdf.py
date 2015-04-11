@@ -3,13 +3,15 @@ __author__ = 'zeroonehacker'
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 import datetime
-data ={"name":"dummy","roll":"dummy","air":"dummy","ptype":"dummy","choice1":"dummy","choice2":"dummy","spi1":"dummy","choice3":"dummy","choice4":"dummy","choice5":"dummy"}
+data ={"name":"dummy","roll":"dummy","air":"dummy","ptype":"dummy","branch":"dummy","choice1":"dummy","choice2":"dummy","spi1":"dummy","choice3":"dummy","choice4":"dummy","choice5":"dummy"}
+
+mapping = {"cer-ugd":"UGD in Ceramic Engineering","che-ugd":"UGD in Chemical Engineering","civ-ugd":"UGD in Civil Engineering","cse-ugd":"UGD in Computer Science and Engineering","eee-ugd":"UGD in Electrical Engineering","ece-ugd":"UGD in Electronics Engineering","mec-ugd":"UGD in Mechanical Engineering","met-ugd":"UGD in Metallurgical Engineering","min-ugd":"UGD in Mining Engineering","apc-imd":"IMD in Industrial Chemistry","mat-imd":"IMD in Mathematics and Computing","app-imd":"IMD in Engineering Physics","cer-idd":"IDD in Ceramic Engineering","civ-idd":"IDD in Civil Engineering","cse-idd":"IDD in Computer Science and Engineering","eee-idd":"IDD in Electrical Engineering","mec-idd":"IDD in Mechanical Engineering","met-idd":"IDD in Metallurgical Engineering","min-idd":"IDD in Mining Engineering","bce-idd":"IDD in Biochemical Engineering","bme-idd":"IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology","mst-idd":"IDD in Materials Science and Technology"}
 def pdf_gen(pdf_file,data=data):
     now = datetime.datetime.now()
     #pdf_file = canvas.Canvas("Branch_Change_Form.pdf")
     pdf_file.rect(0.4*inch,10.7*inch,7.37*inch,0.3*inch)
     pdf_file.setFont('Times-Bold',12)
-    pdf_file.drawCentredString(4.1*inch,10.78*inch,"APPLICATION FORM FOR CHANGE OF BRANCH FOR SESSION 2014-15")
+    pdf_file.drawCentredString(4.1*inch,10.78*inch,"APPLICATION FORM FOR CHANGE OF DISCIPLINE FOR SESSION 2014-15")
     pdf_file.rect(6.2*inch,10.3*inch,1.5*inch,0.2*inch)
     pdf_file.setFont('Courier',12)
     pdf_file.drawString(6.23*inch,10.32*inch,"Date:"+str(now.year)+"-"+str(now.month)+"-"+str(now.day))
@@ -29,19 +31,19 @@ def pdf_gen(pdf_file,data=data):
     text_object4.textLine(data["name"])
     text_object4.textLine(data["air"])
     text_object4.textLine(data["roll"])
-    text_object4.textLine(data["ptype"])
+    text_object4.textLine(data["ptype"] +"    "+mapping[data["branch"]])
     text_object4.textLine("")
-    text_object4.textLine(data["choice1"])
-    text_object4.textLine(data["choice2"])
-    text_object4.textLine(data["choice3"])
-    text_object4.textLine(data["choice4"])
-    text_object4.textLine(data["choice5"])
+    text_object4.textLine(mapping[data["choice1"]])
+    text_object4.textLine(mapping[data["choice2"]])
+    text_object4.textLine(mapping[data["choice3"]])
+    text_object4.textLine(mapping[data["choice4"]])
+    text_object4.textLine(mapping[data["choice5"]])
     pdf_file.drawText(text_object4)
     text_object1 = pdf_file.beginText(0.4*inch,8.6*inch)
     text_object1.setFont('Courier',10)
     text_object1.textLine("Dear Sir,")
     text_object1.textLine("In Accordance with the notification number IIT(BHU)/ACD/2014-15/ .. .. /L dated")
-    text_object1.textLine("11.07.2014 , hereby submit my application for change of branch. The requisite Details are ")
+    text_object1.textLine("11.07.2014 , hereby submit my application for change of discipline. The requisite Details are ")
     text_object1.textLine("given below:")
     text_object1.textLine(" ")
     text_object1.textLine("1. NAME :" )
@@ -100,5 +102,5 @@ def pdf_gen(pdf_file,data=data):
     pdf_file.showPage()
     pdf_file.save()
 if __name__=='__main__':
-    pdf_file = canvas.Canvas('Branch_Change_Form.pdf')
+    pdf_file = canvas.Canvas('Discipline_Change_Form.pdf')
     pdf_gen(pdf_file)
