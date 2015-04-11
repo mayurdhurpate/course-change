@@ -44,16 +44,21 @@
     </div>
     <hr>
     <br>
+  <div class="container">
+<div class="jumbotron">
+    <form action="/email_submit/" align="center" id="myForm"  onsubmit="return validate_email()" role="form" class="form-inline" method="post">{% csrf_token %}
+      <div class="form-group">
+          <label  for="email">Email Address: </label>
 
-    <form action="/email_submit/" align="center" id="myForm"   method="post">{% csrf_token %}
-      <label  for="email">Email Address: </label>
-      <input name="email" type="email" id="email"  />
+      <input name="email" type="email" id="email"  class="form-control" placeholder="Enter your Official Email ID" />
+          </div>
 
-      <button type="submit" id="submit_button"  >Submit</button>
+      <button class="btn btn-submit" type="submit" id="submit_button"  >Submit</button>
 
-    </form>
+    </form></div>
+
     
-
+</div>
 
 
 
@@ -65,7 +70,15 @@
     <script src="/static/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
-    
+    <script>
+        function validate_email(){
+        var f=document.forms["myForm"]["email"].value;
+        if (f == ""){
+        alert("You must fill the Email ");
+        return false;
+        }
+        }
+    </script>
 
   </body>
 </html>

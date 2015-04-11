@@ -43,13 +43,17 @@
 
   <body>
 
-    <form action="/submit/{{p.key}}/" align="center" id="myForm"   method="post">{% csrf_token %}
-      <label  for="name">NAME: </label>
-      <input name="name" type="text" id="name" value="{{p.name}}" style="text-transform:uppercase;" />
+    <form action="/submit/{{p.key}}/" align="center" id="myForm"   method="post" onsubmit="return validate_form()">{% csrf_token %}
+
+          <label  for="name">NAME: </label>
+      <input    name="name" type="text" id="name" value="{{p.name}}" style="text-transform:uppercase;" />
+
       <label  for="air" >ALL INDIA RANK (JEE): </label>
       <input name="air" type="text  " value="{{p.air}}"/>
       <label  for="roll">ROLL NUMBER: </label>
       <input name="roll" type="text" value="{{p.roll}}" /><br><br>
+        <label  for="spi1">CPI I Semester: </label>
+      <input name="spi1" type="text"/>
 
       
       <label  for="ptype">PROGRAMME TYPE: </label>
@@ -296,6 +300,17 @@
 
   }
 }
+ function validate_form(){
+ if($("#choice1").val()==""){
+ alert("First Choice must be filled out");
+ return false;
+ }
+ var c = document.forms["myForm"]["choice1"].value;
+ if (c == "dummy" || c == ""){
+ alert("First Choice must be filled out ");
+ return false;
+ }
+ }
 
     </script>
     <script src="/static/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
