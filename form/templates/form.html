@@ -11,7 +11,7 @@
     <!--favicon-->
     <link rel="icon" href="/static/images/iitbhu.ico">
 
-    <title>Course Change Portal | IIT (BHU), Varanasi</title>
+    <title>Discipline Change Portal | IIT (BHU), Varanasi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
 
   <body>
 
-    <form action="/submit/{{p.key}}/" align="center" id="myForm"   method="post" onsubmit="return validate_form()">{% csrf_token %}
+    <form action="/submit/{{p.key}}/" align="center" id="myForm"   method="post" ">{% csrf_token %}
 
           <label  for="name">NAME: </label>
       <input    name="name" type="text" id="name" value="{{p.name}}" style="text-transform:uppercase;" />
@@ -294,23 +294,17 @@
     });
 
     function fsubmit() {
+     var x = document.getElementbyId("choice1").value;
+	if(x=="dummy" || x == ""){
+		alert("Must have at least one choice");
+		return false;}
     if($("#branch").val()!="dummy"){
     document.getElementById("name").value = $("#name").val().toUpperCase();
     document.getElementById("myForm").submit();
 
   }
 }
- function validate_form(){
- if($("#choice1").val()==""){
- alert("First Choice must be filled out");
- return false;
- }
- var c = document.forms["myForm"]["choice1"].value;
- if (c == "dummy" || c == ""){
- alert("First Choice must be filled out ");
- return false;
- }
- }
+ 
 
     </script>
     <script src="/static/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
