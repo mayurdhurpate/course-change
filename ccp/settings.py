@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
+PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,7 +84,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+MEDIA_ROOT = os.path.join(PROJECT_PATH,'media')
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
@@ -94,7 +98,7 @@ STATICFILES_DIRS = (
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'node7.iitbhuasq.qdp@itbhu.ac.in'   #change this
-EMAIL_HOST_PASSWORD = 'rajput.4321'    #change this
-DEFAULT_FROM_EMAIL = 'Course Change'    #change this
+EMAIL_HOST_USER = 'change.discipline@itbhu.ac.in'   #change this
+EMAIL_HOST_PASSWORD = 'Iitbhu.change123'    #change this
+DEFAULT_FROM_EMAIL = 'Discipline Change'    #change this
 DEFAULT_TO_EMAIL = 'to email'

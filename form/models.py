@@ -20,6 +20,7 @@ class Student(models.Model):
     choice3 = models.CharField(max_length=70,null=True,blank=True,default="dummy")
     choice4 = models.CharField(max_length=70,null=True,blank=True,default="dummy")
     choice5 = models.CharField(max_length=70,null=True,blank=True,default="dummy")
+    flag = models.IntegerField(default=0)
     def __str__(self):
         return "%s %s" % (self.name,self.roll)
     def __unicode__(self):

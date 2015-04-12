@@ -42,25 +42,47 @@
   </head>
 
   <body>
+  <div class="container">
+  <div class="row">
+      <div class="col-sm-3"><img src="/static/images/logo.jpg" style="height: 150px;width: 150px;left-margin: 70px" align="right" class="img-responsive"/></div>
+      <div class="col-sm-9"><img src="/static/images/emblem.jpg" style="height: 150px;width: auto;" align="left" class="img-responsive"/></div>
+  </div>
+      </div>
+<div class="container">
+    <p><b>Please fill your details below:<br></b></p>
+    <form action="/submit/{{p.key}}/" align="center" id="myForm" role="form" method="post" ">{% csrf_token %}
+<div class="jumbotron">
 
-    <form action="/submit/{{p.key}}/" align="center" id="myForm"   method="post" ">{% csrf_token %}
+  <div class="form-group">
+<div class="row">
+     <div class="col-sm-5"><label  for="name" align="right">NAME: </label></div>
+      <div class="col-sm-5" algin="left"><input align="left" size="40" name="name" type="text" id="name" value="{{p.name}}" style="text-transform:uppercase;" placeholder="Enter your full name here"/></div>
+</div>
+  </div>
 
-          <label  for="name">NAME: </label>
-      <input    name="name" type="text" id="name" value="{{p.name}}" style="text-transform:uppercase;" />
+    <div class="form-group">
+<div class="row">
+        <div class="col-sm-5"><label  for="air" align="right">ALL INDIA RANK (JEE): </label></div>
+      <div class="col-sm-5"><input name="air" size="40" align="left" type="text" value="{{p.air}}" placeholder="Enter you All India Rank here"/></div>
+    </div></div>
 
-      <label  for="air" >ALL INDIA RANK (JEE): </label>
-      <input name="air" type="text  " value="{{p.air}}"/>
-      <label  for="roll">ROLL NUMBER: </label>
-      <input name="roll" type="text" value="{{p.roll}}" /><br><br>
-        <label  for="spi1">CPI I Semester: </label>
-      <input name="spi1" type="text" value="{{p.spi1}}"/>
+      <div class="form-group">
+<div class="row">
+         <div class="col-sm-5"> <label  for="roll">ROLL NUMBER: </label></div>
+      <div class="col-sm-5"><input size="40" name="roll" type="text" value="{{p.roll}}" placeholder="Enter your Institute roll number"/></div>
+      </div></div>
+        <div class="form-group">
+<div class="row">
+            <div class="col-sm-5"><label  for="spi1">SPI I Semester: </label></div>
+      <div class="col-sm-5"><input size="40" name="spi1" type="text" value="{{p.spi1}}" placeholder="Enter your First semester SPI"/></div></div>
+            <br><br>
 
-      
+
       <label  for="ptype">PROGRAMME TYPE: </label>
       <select name="ptype" id="ptype">
         <option value="year4">4­ Year Programme</option>
         <option value="year5">5 Year Programme</option>
-      </select>
+      </select><br><br>
       <label  for="branch" >BRANCH: </label>
       <select name="branch" id="branch" onchange="toggleDisability(this);">
         <option value="dummy" class="dummy" >Select a Branch</option>
@@ -73,7 +95,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -87,9 +108,11 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
-      </select><br><br>
-
+      </select><br><br></div></div></div>
+  <div class="container">
+      <p><b>Your Discipline Preferences:<br></b></p>
+      <div class="jumbotron">
+          <div class="form-group">
       <label  for="choice1" >Choice 1: </label>
       <select name="choice1" class="choice">
         <option value="dummy" class="dummy" >Select a Branch</option>
@@ -102,7 +125,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -116,7 +138,6 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
       </select><br><br>
       <label  for="choice2" >Choice 2: </label>
       <select name="choice2" class="choice">
@@ -130,7 +151,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -144,7 +164,6 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
       </select><br><br>
       <label  for="choice3" >Choice 3: </label>
       <select name="choice3" class="choice">
@@ -158,7 +177,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -172,7 +190,6 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
       </select><br><br>
       <label  for="choice4" >Choice 4: </label>
       <select name="choice4" class="choice">
@@ -186,7 +203,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -200,7 +216,6 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
       </select><br><br>
       <label  for="choice5" >Choice 5: </label>
       <select name="choice5" class="choice">
@@ -214,7 +229,6 @@
         <option value="mec-ugd" class="ugd">UGD in Mechanical Engineering</option>
         <option value="met-ugd" class="ugd">UGD in Metallurgical Engineering9</option>
         <option value="min-ugd" class="ugd">UGD in Mining Engineering</option>
-
         <option value="apc-imd" class="idd" >IMD in Industrial Chemistry</option>
         <option value="mat-imd" class="idd" >IMD in Mathematics and Computing</option>
         <option value="app-imd" class="idd" >IMD in Engineering Physics</option>
@@ -228,26 +242,21 @@
         <option value="bce-idd" class="idd" >IDD in Biochemical Engineering</option>
         <option value="bme-idd" class="idd" >IDD with B. Tech. in Bio-Engineering  - M. Tech. in Biomedical Technology</option>
         <option value="mst-idd" class="idd" >IDD in Materials Science and Technology</option>
-
       </select><br><br>
-
+          <input type="hidden" id="flag" name="flag" value=1> </div>
+          <div align="center">
       <button type="button" id="submit_button" onclick="fsubmit()" >Submit</button>
-
+          </div></div></div>
     </form>
-    
 
 
-
-
-    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/js/jquery.js"></script>
-    
-    
-    <script type="text/javascript">
 
+
+    <script type="text/javascript">
         function toggleDisability(selectElement){
     $('[name=choice1]').val( "dummy" );
     $('[name=choice2]').val(  "dummy" );
@@ -262,7 +271,6 @@
    for(var i=0; i<arraySelects.length; i++) {
     if(arraySelects[i] == selectElement)
      continue; //Passing the selected Select Element
-
     for(var ty=0; ty<arraySelects[i].options.length; ty++) {
         if (arraySelects[i].options[ty].value==selectedOption && selectedOption != "dummy")
             arraySelects[i].options[ty].disabled = true;
@@ -271,7 +279,6 @@
     }
    }
   }
-
     $('[name=ptype]').val( ptype );
     $('[name=branch]').val( branch );
     $('[name=choice1]').val( choice1 );
@@ -279,7 +286,6 @@
     $('[name=choice3]').val( choice3 );
     $('[name=choice4]').val( choice4 );
     $('[name=choice5]').val( choice5 );
-
     $(".idd").hide();
     $("#ptype").change(function () {
       $('.dummy').prop('selected', true);
@@ -294,11 +300,8 @@
     });
 
     function fsubmit() {
-     var x = document.getElementbyId("choice1").value;
-	if(x=="dummy" || x == ""){
-		alert("Must have at least one choice");
-		return false;}
-    if($("#branch").val()!="dummy"){
+     
+    if($("#branch").val()!="null"){
     document.getElementById("name").value = $("#name").val().toUpperCase();
     document.getElementById("myForm").submit();
 

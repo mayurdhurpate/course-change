@@ -33,19 +33,34 @@
   </head>
 
   <body>
-  <h2 align="center">Discipline Change Portal</h2>
-    <div style="padding:20px;">
-        <h3>NOTE:</h3>
-        <ul>
-            <li>Mail sending won't work probably behind proxy when running on development.</li>
-            <li>Cos' I guess 587 smtp port is blocked. Use direct internet in development for mail checking.</li>
-            <li>settings mai email and password dalke views mai send_mail line unhash karke we can check mail sending.</li>
+  <div class="container">
+  <div class="row">
+      <div class="col-sm-3"><img src="/static/images/logo.jpg" style="height: 150px;width: 150px;left-margin: 70px" align="right" class="img-responsive"/></div>
+      <div class="col-sm-9"><img src="/static/images/emblem.jpg" style="height: 150px;width: auto;" align="left" class="img-responsive"/></div>
+  </div>
+      </div>
+  <h2 align="center"><u>Discipline Change Portal</u></h2>
+  <div class="container">
+      <h3>Procedure :</h3>
+      <div class="jumbotron">
+        <h4>The following is the procedure for change of discipline for students in Part-1 of their respective programs.</h5>
+        <ul style="font-size:16px">
+            <li>Change of discipline is subject to the eligibility and availability as described in the rules given here <a href="{{ MEDIA_URL }}pdf/Rules_and_Procedures_of_Branch_Change.pdf">[Rules and Guidelines]</a> <br>    Students must read these rules and indicate their agreement by checking the box below.</li>
+            <li>Enter your official email (IIT-BHU) address in the text box and click submit. A link of the form to be filled is then sent to the given email address.</li>
+            <li>Use the link in the email to fill in the necessary details on the form and click submit. The completed form is then available for download in PDF format.</li>
+            <li>Download the completed form as a PDF file, sign it and hand it over in the office of the Assistant Registrar (Academic), IIT(BHU) (located in the Electrical Engineering building behind G10) on or before <b> 20<sup>th</sup>April,2015</b></li>
         </ul>
-    </div>
+      </div>
+      </div>
     <hr>
-    <br>
   <div class="container">
 <div class="jumbotron">
+
+         <div class="checkbox" align="center">
+    <label><input type="checkbox" id="chechbox1"> I have read the rules and guidelines regarding change of discipline</label>
+     </div>
+
+
     <form action="/email_submit/" align="center" id="myForm"  onsubmit="return validate_email()" role="form" class="form-inline" method="post">{% csrf_token %}
       <div class="form-group">
           <label  for="email">Email Address: </label>
@@ -53,7 +68,7 @@
       <input name="email" type="email" id="email"  class="form-control" placeholder="Enter your Official Email ID" />
           </div>
 
-      <button class="btn btn-submit" type="submit" id="submit_button"  >Submit</button>
+      <button class="btn btn-submit" type="submit" id="submit_button"  >Submit <span class="glyphicon glyphicon-ok-sign"></span> </button>
 
     </form></div>
 
@@ -73,9 +88,22 @@
     <script>
         function validate_email(){
         var f=document.forms["myForm"]["email"].value;
+        var c = document.getElementById("chechbox1").checked;
         if (f == ""){
         alert("You must fill the Email ");
         return false;
+        }
+        else if(c == false){
+        alert("Please read the rules and guidelines and Accept it!");
+        return false;
+        }
+         else {
+        var splitted = f.match("^(.+)@itbhu\.ac\.in$");
+        var splitted1 = f.match("^(.+)@iitbhu\.ac\.in$")
+        if(splitted == null && splitted1 == null){
+        alert("Enter valid official Email");
+        return false;
+        }
         }
         }
     </script>

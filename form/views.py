@@ -11,7 +11,10 @@ from reportlab.pdfgen import canvas
 # Create your views here.
 data = {}
 def home(request):
-	return render(request, 'index.html', {})
+    print request.META['HTTP_USER_AGENT']
+    if "IE" in request.META['HTTP_USER_AGENT']:
+        return render(request,'warning.html',{})
+    return render(request, 'index.html', {})
 
 def mail(request):
 	email = request.POST["email"]
@@ -27,16 +30,19 @@ def mail(request):
 		p.save()
 	print key
 
-	text="Submit the course change form by clicking this link: http://14.98.154.49:8090/form/"+key+"/" 
+	text="Submit the change of discipline form by clicking this link: http://14.96.153.12/form/"+key+"/"
 	send_mail('Course Change Portal', text, settings.EMAIL_HOST_USER, [request.POST['email']], fail_silently=False)
-	return HttpResponse("An email has been sent to your email address.")
+	return HttpResponse("<b>An email has been sent to your email address.Please Follow the link in the email</b>")
 
 def form(request,key):
-	try:
-		p = Student.objects.get(key=key)
-		return render(request, 'form.html', {'p':p})
-	except:
-		return HttpResponse("Invalid Link")
+    try:
+        p = Student.objects.get(key=key)
+        if p.flag == 0:
+            return render(request,'form.html',{'p':p})
+        else:
+            return render(request,'registered.html',{'p':p})
+    except:
+        return HttpResponse("Invalid link")
 
 def submit(request,key):
 	if request.method=="POST":
@@ -70,16 +76,34 @@ def submit(request,key):
 			s.choice5 = request.POST["choice5"]
 			data["choice5"] = s.choice5
 			s.spi1 = request.POST["spi1"]
+			s.flag = 1
+			data["key"]=key
 			data["spi1"] = s.spi1
+			data["email"] = s.email
 			p = pdf.pdf_gen(p,data)
 			p.showPage()
 			p.save()
 			s.save()
 			response.write(temp.getvalue())
-			return render_to_response('download.html',data)
+			return render(request,'download.html',data)           
+
+
 	else:
 		return HttpResponse("Validation failed.")
-def pdf_download(request):
+def pdf_download(request,key):
+    s = Student.objects.get(key=key)
+    data["name"] = s.name
+    data["air"] = s.air
+    data["roll"] = s.roll
+    data["ptype"] = s.ptype
+    data["branch"] = s.branch
+    data["choice1"] = s.choice1
+    data["choice2"] = s.choice2
+    data["choice3"] = s.choice3
+    data["choice4"] = s.choice4
+    data["choice5"] = s.choice5
+    data["spi1"] = s.spi1
+    data["email"] = s.email
     temp = StringIO()
     p = canvas.Canvas(temp)
     response = HttpResponse(content_type='application/pdf')
@@ -89,3 +113,4 @@ def pdf_download(request):
     p.save()
     response.write(temp.getvalue())
     return response
+
