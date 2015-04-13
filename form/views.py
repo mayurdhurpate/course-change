@@ -32,7 +32,7 @@ def mail(request):
 		p.save()
 	print key
 
-	text="Submit the change of discipline form by clicking this link: http://14.98.229.201/form/"+key+"/"
+	text="Submit the change of discipline form by clicking this link: http://10.1.1.239/form/"+key+"/"
 	send_mail('Course Change Portal', text, settings.EMAIL_HOST_USER, [request.POST['email']], fail_silently=False)
 	return HttpResponse("<b>An email has been sent to your email address.Please Follow the link in the email</b>")
 
