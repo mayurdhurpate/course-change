@@ -45,7 +45,7 @@
       <div class="jumbotron">
         <h4>The following is the procedure for change of discipline for students in Part-1 of their respective programs.</h5>
         <ul style="font-size:16px">
-            <li>Change of discipline is subject to the eligibility and availability as described in the rules given here <a href="{{ MEDIA_URL }}pdf/Rules_and_Procedures_of_Branch_Change.pdf">[Rules and Guidelines]</a> <br>    Students must read these rules and indicate their agreement by checking the box below.</li>
+            <li>Change of discipline is subject to the eligibility and availability as described in the rules given below <br>    Students must read these rules and indicate their agreement by checking the box below.</li>
             <li>Enter your official email (IIT-BHU) address in the text box and click submit. A link of the form to be filled is then sent to the given email address.</li>
             <li>Use the link in the email to fill in the necessary details on the form and click submit. The completed form is then available for download in PDF format.</li>
             <li>Download the completed form as a PDF file, sign it and hand it over in the office of the Assistant Registrar (Academic), IIT(BHU) (located in the Electrical Engineering building behind G10) on or before <b> 20<sup>th</sup>April,2015</b></li>
@@ -57,7 +57,7 @@
 <div class="jumbotron">
 
          <div class="checkbox" align="center">
-    <label><input type="checkbox" id="chechbox1"> I have read the rules and guidelines regarding change of discipline</label>
+    <label><input type="checkbox" id="chechbox1" onchange="checkboxfn(this)"> I have read the <a href="{{ MEDIA_URL }}pdf/Rules_and_Procedures_of_Branch_Change.pdf">Rules and Guidelines</a> regarding change of discipline</label>
      </div>
 
 
@@ -86,6 +86,12 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
     <script>
+        function checkboxfn(){
+                check = document.getElementById("chechbox1").checked;
+            if (check){
+                    window.open('{{ MEDIA_URL }}pdf/Rules_and_Procedures_of_Branch_Change.pdf','_blank');
+            }
+        }
         function validate_email(){
         var f=document.forms["myForm"]["email"].value;
         var c = document.getElementById("chechbox1").checked;

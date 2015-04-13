@@ -99,6 +99,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'change.discipline@itbhu.ac.in'   #change this
-EMAIL_HOST_PASSWORD = 'Iitbhu.change123'    #change this
+EMAIL_HOST_PASSWORD = 'Dportal.iitbhu@2k15'    #change this
 DEFAULT_FROM_EMAIL = 'Discipline Change'    #change this
 DEFAULT_TO_EMAIL = 'to email'
